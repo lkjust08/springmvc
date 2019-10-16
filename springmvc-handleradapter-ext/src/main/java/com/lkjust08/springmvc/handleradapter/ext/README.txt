@@ -1,0 +1,14 @@
+----------------说明----20191016-------
+该包主要为展示如何扩展springmvc中“controller”的用法
+     springmvc中处理请求的方式的几种类型是HandlerAdapter类，即：
+     HttpRequestHandlerAdapter
+     SimpleControllerHandlerAdapter
+     SimpleServletHandlerAdapter
+     RequestMappingHandlerAdapter
+     如果想扩展自己的的实现方式，可以自定义HandlerAdapter
+扩展方法如下：
+1，声明一个“controller”类型的处理适配器，继承HandlerAdapter
+2，将（1）的适配器注册的spring容器中，可以采用@Component
+3，声明一个通用的处理器，规则需要实现的规则，这里声明的是BaseCMDHandler类，需要实现test（）
+4，实现BaseCMDHandler类，即CmdHandlerTest，@Component("/cmdTest")中/cmdTest即为请求url
+CmdHandlerTest使用的处理器映射器（HandlerMapping），主要是通过BeanNameUrlHandlerMapping来处理的
